@@ -38,10 +38,11 @@ public class LoopTask {
         String g = "";
 
         System.out.println("Введите колличество циклов");
-        while(true) {
+        int t = 0;
+        while (true) {
             g = scanner.nextLine();
             try {
-                int t = Integer.parseInt(g);
+                t = Integer.parseInt(g);
                 break;
             } catch (NumberFormatException e) {
                 attempt--;
@@ -52,27 +53,39 @@ public class LoopTask {
                 break;
             }
         }
+        for(int i=0; i<t;i++) {
+            System.out.println("Введите 3 числа a, b, n");
+            attempt = 3;
+            int a = 0;
+            int b = 0;
+            int n = 0;
+            while (true) {
+                g = scanner.nextLine();
+                Scanner buffer = new Scanner(g);
+                try {
+                    a = buffer.nextInt();
+                    b = buffer.nextInt();
+                    n = buffer.nextInt();
+                    break;
 
-        System.out.println("Введите 3 числа a, b, n");
-        attempt = 3;
-        while(true) {
-            g = scanner.nextLine();
-            Scanner buffer = new Scanner(g);
-            try {
-                int a = buffer.nextInt();
-                int b = buffer.nextInt();
-                int n = buffer.nextInt();
-                break;
-
-            } catch (Exception e) {
-                attempt--;
-                System.out.println("Попробуй еще раз. Осталось попыток: " + attempt);
+                } catch (Exception e) {
+                    attempt--;
+                    System.out.println("Попробуй еще раз. Осталось попыток: " + attempt);
+                }
+                if (attempt == 0) {
+                    System.out.println("Fucked up");
+                    break;
+                }
             }
-            if (attempt == 0) {
-                System.out.println("Fucked up");
-                break;
+            double result = a;
+            System.out.println("Answer: ");
+            for (int j = 0; j < n; j++) {
+                result += Math.pow(2, j) * b;
+                System.out.print(result + " ");
             }
+            System.out.println();
         }
-        System.out.println("The end");
+            System.out.println("The end");
+        scanner.close();
     }
 }
