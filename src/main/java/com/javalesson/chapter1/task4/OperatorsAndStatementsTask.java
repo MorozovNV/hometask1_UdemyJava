@@ -64,7 +64,9 @@ public class OperatorsAndStatementsTask {
      * и вызвав Run OperatorsTest.
      */
     static String checkStrangeness(int num) {
-        return null;
+        if (num%2==0 && ((num>2 && num<5) || num>20) ) return "Normal";
+        if (num%2!=0 || (num>6 && num<20)) return "Strange";
+        return "Undefined";
     }
 
 
